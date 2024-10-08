@@ -36,7 +36,7 @@ const silent = async (): Promise<Details> => {
   return { provider }
 }
 
-export const connect = async (provider: Wallet) => {
+const connect = async (provider: Wallet) => {
   switch (provider) {
     case 'metamask':
       return metamask()
@@ -47,7 +47,7 @@ export const connect = async (provider: Wallet) => {
   }
 }
 
-export const accountsChanged = (callback: (accounts: string[]) => void) => {
+const accountsChanged = (callback: (accounts: string[]) => void) => {
   const ethereum = (window as any).ethereum
   if (ethereum && ethereum.on) {
     ethereum.on('accountsChanged', callback)
@@ -57,7 +57,7 @@ export const accountsChanged = (callback: (accounts: string[]) => void) => {
   }
 }
 
-export const chainChanged = (callback: (accounts: string[]) => void) => {
+const chainChanged = (callback: (accounts: string[]) => void) => {
   const ethereum = (window as any).ethereum
   if (ethereum && ethereum.on) {
     ethereum.on('chainChanged', callback)
@@ -65,4 +65,11 @@ export const chainChanged = (callback: (accounts: string[]) => void) => {
   } else {
     return () => {}
   }
+}
+
+export default  {
+  connect, 
+  accountsChanged, 
+  chainChanged, 
+  
 }

@@ -11,6 +11,7 @@ export const correctChain = () => {
 export const init = async (details: ethereum.Details) => {
   const { provider, signer } = details
   const network = await provider.getNetwork()
+  console.log("HIIIIIIIIIIIIIII 3" , network.chainId)
   if (correctChain() !== network.chainId) {
     console.error('Please switch to HardHat')
     return null

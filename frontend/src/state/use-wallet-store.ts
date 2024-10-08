@@ -9,8 +9,7 @@ interface WalletState {
   set_contract: (contract?:  main.Main) => void
 }
 
-const useWalletStore =  create(
-    persist<WalletState>(
+const useWalletStore =  create<WalletState>(
         (set:any,get:any)=>({
             details : undefined, 
             set_details : (details?:Details)=>set((prev:WalletState)=>{
@@ -20,11 +19,6 @@ const useWalletStore =  create(
                 return {...prev,contract:contract}
             }),
         }), 
-        {
-            name:"store-auth", 
-            storage: createJSONStorage(()=>localStorage)
-        }
-    )
 )
 
 
