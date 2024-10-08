@@ -1,4 +1,4 @@
-import { ethers } from 'ethers'
+import { ethers,utils } from 'ethers'
 import * as providers from './ethereum/provider'
 export * as account from './ethereum/account'
 
@@ -66,10 +66,16 @@ const chainChanged = (callback: (accounts: string[]) => void) => {
     return () => {}
   }
 }
+const formatEther = async(details:Details,address:string)=>{
+  const balanceWei = await details.provider.getBalance(address);
+  const balanceEth = utils.formatEther(balanceWei); 
+  return balanceEth;
+}
 
 export default  {
   connect, 
   accountsChanged, 
   chainChanged, 
+  formatEther
   
 }

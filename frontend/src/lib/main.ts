@@ -19,9 +19,10 @@ export const init = async (details: ethereum.Details) => {
   const { address, abi } = contracts.Main
   const contract = new ethers.Contract(address, abi, provider)
   const deployed = await contract.deployed()
-  if (!deployed) return null
+  if (!deployed) 
+    return null
   const contract_ = signer ? contract.connect(signer) : contract
-  return contract_ as any as Main
+  return contract_ as any as Main & {address:string}
 }
 
 export const myShip = () => contracts.Main.address
