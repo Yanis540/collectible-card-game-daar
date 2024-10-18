@@ -57,6 +57,6 @@ contract Collection is ERC721URIStorage, ERC721Enumerable, Ownable {
   function _baseURI() internal pure override(ERC721)
     returns(string memory)
   {
-    return "http://localhost:3030/getCard/";
+    return "http://localhost:5000/getCard/";
   }
 }

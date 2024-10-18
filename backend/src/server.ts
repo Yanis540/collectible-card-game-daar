@@ -15,6 +15,8 @@ const port = process.env.PORT || 5000;
 
 
 
+
+app.use(cors({origin:"*"}))
 // create collections in blockchain when server is loading
 createCollection();
 

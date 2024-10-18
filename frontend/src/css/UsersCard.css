@@ -1,0 +1,68 @@
+.card-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(0px, 110px)); 
+  row-gap: 15px;  
+  column-gap: 180px;
+  padding: 0px;
+  margin: 0 auto;
+  justify-content:center;
+  align-items: center;
+  background-image: url('/src/photos/pokemon-background.jpg');
+  background-size: cover; 
+  background-attachment: fixed;
+  width: 50%;
+}
+
+.card {
+  Width: '50px';
+  Height: '50px';
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #f0f0f0;
+
+  max-height:fit-content;
+
+  @media screen and (min-width: 600px) {
+    width: clamp(12.9vw, 61vh, 18vw);
+  }
+  
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  z-index: 10;
+  touch-action: none;
+  
+  border-radius: 5% / 3.5%;
+  box-shadow: 
+    -5px -5px 5px -5px var(--color1), 
+    5px 5px 5px -5px var(--color2), 
+    -7px -7px 10px -5px transparent, 
+    7px 7px 10px -5px transparent, 
+    0 0 5px 0px rgba(255,255,255,0),
+    0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  
+  transition: transform 0.5s ease, box-shadow 0.2s ease;
+  will-change: transform, filter;
+  
+  background-image: var(--front);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform-origin: center;
+
+  cursor: pointer;
+}
+
+
+.card.animated {
+  transition: none;
+  animation: holoCard 12s ease 0s 1;
+  &:before { 
+    transition: none;
+    animation: holoGradient 12s ease 0s 1;
+  }
+  &:after {
+    transition: none;
+    animation: holoSparkle 12s ease 0s 1;
+  }
+}

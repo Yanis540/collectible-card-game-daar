@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import * as main from '@/lib/main'
 import { useWalletStore } from "@/state/use-wallet-store"
 import ethereum from "@/lib/ethereum"
-import { DEFAULT_CONTACT_ADDRESS } from "@/constants"
+import { MAIN_CONTRACT_OWNER_ADDRESS } from "@/constants"
 type Canceler = () => void
 
 const useAffect = (
@@ -20,6 +20,7 @@ const useAffect = (
           cancelerRef.current = undefined
         }
       }
+
     }, dependencies)
 }
 export const useWallet = () => {
@@ -34,7 +35,7 @@ export const useWallet = () => {
         const contract_ = await main.init(details_)
         console.log("contract>>>> : ",contract_)
         console.log((await details_.provider.getBalance(contract_?.address??"")))
-        const balanceEth = await ethereum.formatEther(details_,DEFAULT_CONTACT_ADDRESS)// Convert Wei to ETH string
+        const balanceEth = await ethereum.formatEther(details_,MAIN_CONTRACT_OWNER_ADDRESS)// Convert Wei to ETH string
         console.log(balanceEth) // Con
         if (!contract_) 
             return
