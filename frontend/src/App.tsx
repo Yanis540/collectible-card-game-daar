@@ -1,4 +1,3 @@
-import styles from './styles.module.css'
 import { useWallet } from './hooks/use-wallet'
 import { useWalletStore } from './state/use-wallet-store'
 import ConnectWalletButton from './components/ConnectWalletButton'
@@ -9,7 +8,8 @@ import PokemonCard from './components/PokemonCard'
 import UserCards from './components/UserCards'
 import UserPage from './components/UserPage'
 import NavBar from './components/NavBar'
-import './css/Styles.css'; 
+import './index.css'
+
 import Sets from './components/Sets';
 import Mint from './components/Mint';
 
@@ -21,7 +21,7 @@ export const App = () => {
   console.log("HIIIIIIIIIIIIIIIIIIIII")
   const {details,contract} = useWalletStore();
   return (
-    <div className={styles.body}>
+    <div className={"flex flex-col min-h-screen bg-gray-900 text-white text-foreground"}>
      
         <>
           <NavBar />

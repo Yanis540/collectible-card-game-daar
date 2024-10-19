@@ -7,13 +7,13 @@
   margin: 0 auto;
   justify-content:center;
   align-items: center;
-  background-image: url('/src/photos/pokemon-background.jpg');
+  /* background-image: url('/src/photos/pokemon-background.jpg'); */
   background-size: cover; 
   background-attachment: fixed;
 }
 
 html{
-  background-image: url('/src/photos/pokemon-background.jpg');
+  /* background-image: url('/src/photos/pokemon-background.jpg'); */
   background-size: cover; 
   background-attachment: fixed;
 }
@@ -24,7 +24,7 @@ html{
 
 #root{
   height: 100%;
-  background-image: url('/src/photos/pokemon-background.jpg');
+  /* background-image: url('/src/photos/pokemon-background.jpg'); */
   background-size: cover; 
   background-attachment: fixed;
   --color1: rgb(0, 231, 255);
