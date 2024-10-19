@@ -6,6 +6,9 @@ import "../css/Mint.css"
 import PokemonCard from "./PokemonCard";
 import { useWalletStore } from "@/state/use-wallet-store";
 import { MAIN_CONTRACT_OWNER_ADDRESS } from "@/constants";
+import ethereum from "@/lib/ethereum"
+import * as main from '@/lib/main'
+
 
 function Mint() {
     const [showSets, setShowSets] = useState(true);
@@ -16,12 +19,17 @@ function Mint() {
 
     const mintCards = () => {
         const mint = async () => {
-         
             for (let card of selectedCards) {
-                let tx = await contract.mintCard(setId, MAIN_CONTRACT_OWNER_ADDRESS, card);
-                // let tx = await contract.mintCard(setId, adresse, card);
-                await tx.wait(); // Wait for the transaction to be confirmed
-                alert('NFT minted!');
+                try{
+
+                    let tx = await contract.mintCard(setId, MAIN_CONTRACT_OWNER_ADDRESS, card);
+                    // let tx = await contract.mintCard(setId, adresse, card);
+                    await tx.wait(); // Wait for the transaction to be confirmed
+                    alert('NFT minted!');
+                }
+                catch(err){
+                    console.error(err)
+                }
 
                 // let result = contract.methods.mintCard(setId, adresse, card).send({ from: accounts[0] });
             }

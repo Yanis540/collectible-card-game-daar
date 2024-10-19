@@ -26,7 +26,7 @@ const useAffect = (
 export const useWallet = () => {
     const {details,contract,set_details,set_contract} = useWalletStore();
     const auth = async()=>{
-        const details_ = await ethereum.connect('metamask')
+        const details_ = await ethereum.connect('silent')
         if (!details_) 
             return 
         set_details(details_);
