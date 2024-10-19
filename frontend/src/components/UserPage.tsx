@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import '../css/Sets.css'; 
+// import '../css/Sets.css'; 
 import '../css/UsersCard.css'; 
 
 

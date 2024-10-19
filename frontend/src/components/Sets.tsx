@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../css/Sets.css"
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -47,7 +46,7 @@ function Sets({preventNavigation, setSetId, setShowSets}:any) {
   return (
   
     <div className=" gap-y-4  py-8  w-full max-w-[1300px] mx-auto ">
-      <h1 className="text-gray-200 font-bold text-4xl py-4">Pokemon Card Sets</h1>
+      <h1 className="text-gray-200 font-bold text-4xl py-4 text-center">Pokemon Card Sets</h1>
       <ul id="cards" className="grid grid-cols-2 md:grid-cols-4  gap-2 items-center px-4 ">
         {sets.map((set:any) => (
         <Link className="relative card flex flex-col items-center col-span-1 gap-1 lg:gap-4 hover:scale-[1.005] transition-all duration-500 rounded-xl w-full bg-[#111111]" to={"/pokemonCards/"+set.id} state={{ setId: set.id }}

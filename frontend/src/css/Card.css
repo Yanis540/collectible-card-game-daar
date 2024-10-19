@@ -138,7 +138,7 @@ html{
 
 .pokemon-card.active:after,
 .pokemon-card:hover:after {
-  filter: brightness(1) contrast(1);;
+  filter: brightness(1) contrast(1);
   opacity: 1;
 }
 

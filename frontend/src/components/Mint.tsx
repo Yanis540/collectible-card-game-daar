@@ -1,29 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import Web3 from "web3";
 import Sets from "./Sets";
 import "../css/Mint.css"
 import PokemonCard from "./PokemonCard";
 import { useWalletStore } from "@/state/use-wallet-store";
 import { MAIN_CONTRACT_OWNER_ADDRESS } from "@/constants";
-import ethereum from "@/lib/ethereum"
-import * as main from '@/lib/main'
+
 
 
 function Mint() {
     const [showSets, setShowSets] = useState(true);
     const [setId, setSetId] = useState();
     const [selectedCards, setCards] = useState([]);
-    const [adresse, setAdresse] = useState("");
+    // const [adresse, setAdresse] = useState("");
     const {contract} = useWalletStore()
 
     const mintCards = () => {
         const mint = async () => {
             for (let card of selectedCards) {
                 try{
-
                     let tx = await contract.mintCard(setId, MAIN_CONTRACT_OWNER_ADDRESS, card);
-                    // let tx = await contract.mintCard(setId, adresse, card);
                     await tx.wait(); // Wait for the transaction to be confirmed
                     alert('NFT minted!');
                 }
@@ -31,16 +27,12 @@ function Mint() {
                     console.error(err)
                 }
 
-                // let result = contract.methods.mintCard(setId, adresse, card).send({ from: accounts[0] });
             }
         };
         mint();
-        // Send Ethereum to an address
 
     }
-    const handleValue = (event:any) => {
-        setAdresse(event.target.value);
-    }
+
 
     const [users, setUsers] = useState([]);
 
@@ -60,17 +52,12 @@ function Mint() {
     return (
 
         <div className="pokemon-sets-div">
-            <select className="mint-input" onChange={handleValue}>
-                {users.map((user) => (
-                    <option key={user} value={user}>
-                    {user}
-                    </option>
-                ))}
-            </select>
-            <input type="text" onChange={handleValue}></input>
-            {!showSets && <button onClick={() => { setShowSets(!showSets); setCards([]) }}>Back to sets</button>}
-            {!showSets && <button onClick={() => mintCards()}
-                disabled={selectedCards.length === 0}  >Mint !</button>}
+         
+            <div className="flex flex-row items-center justify-center gap-x-5 py-4">
+                {!showSets && <button className="   bg-teal-600  hover:text-teal-900 hover:bg-teal-400 " onClick={() => { setShowSets(!showSets); setCards([]) }}>{"<"}</button>}
+                {!showSets && <button className="bg-teal-600  hover:text-teal-900 hover:bg-teal-400" onClick={() => mintCards()}
+                    disabled={selectedCards.length === 0}  >Mint cards</button>}
+            </div>
             {showSets && <Sets setSetId={setSetId} setShowSets={setShowSets} preventNavigation={true}></Sets>}
             {!showSets && <PokemonCard setId={setId} minting={true} setCardsToMint={setCards}></PokemonCard>}
         </div>
