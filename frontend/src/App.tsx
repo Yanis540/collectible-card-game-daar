@@ -20,9 +20,14 @@ export const App = () => {
   const wallet = useWallet()
   console.log("HIIIIIIIIIIIIIIIIIIIII")
   const {details,contract} = useWalletStore();
+  if(!details?.account) return( 
+    <div className={"flex flex-col min-h-screen items-center justify-center bg-gray-900 text-white text-foreground"}>
+      <ConnectWalletButton /> 
+    </div>
+  )
   return (
     <div className={"flex flex-col min-h-screen bg-gray-900 text-white text-foreground"}>
-     
+      
         <>
           <NavBar />
           <Routes>

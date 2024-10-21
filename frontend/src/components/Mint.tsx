@@ -7,7 +7,6 @@ import { useWalletStore } from "@/state/use-wallet-store";
 import { MAIN_CONTRACT_OWNER_ADDRESS } from "@/constants";
 
 
-
 function Mint() {
     const [showSets, setShowSets] = useState(true);
     const [setId, setSetId] = useState();
@@ -53,10 +52,12 @@ function Mint() {
 
         <div className="pokemon-sets-div">
          
-            <div className="flex flex-row items-center justify-center gap-x-5 py-4">
-                {!showSets && <button className="   bg-teal-600  hover:text-teal-900 hover:bg-teal-400 " onClick={() => { setShowSets(!showSets); setCards([]) }}>{"<"}</button>}
-                {!showSets && <button className="bg-teal-600  hover:text-teal-900 hover:bg-teal-400" onClick={() => mintCards()}
+            <div className="flex flex-col w-full">
+                <div className="flex flex-row items-center justify-between gap-x-5 py-4 mx-auto w-full max-w-[1300px]">
+                {!showSets && <button className="   bg-yellow-600  hover:text-yellow-900 hover:bg-yellow-400 " onClick={() => { setShowSets(!showSets); setCards([]) }}>{"<"}</button>}
+                {!showSets && <button className="bg-yellow-600  hover:text-yellow-900 hover:bg-yellow-400" onClick={() => mintCards()}
                     disabled={selectedCards.length === 0}  >Mint cards</button>}
+                </div>
             </div>
             {showSets && <Sets setSetId={setSetId} setShowSets={setShowSets} preventNavigation={true}></Sets>}
             {!showSets && <PokemonCard setId={setId} minting={true} setCardsToMint={setCards}></PokemonCard>}
