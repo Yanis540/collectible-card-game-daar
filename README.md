@@ -1,3 +1,12 @@
+# Groupe 
+Yanis Tabelllout 21307532
+
+Salim Tabelllout 21307533
+# Video 
+
+> Cliquez sur la  [Video](https://drive.google.com/file/d/1jPHpiXSMmwHjU_AnDFl86xEMbkIgUkoK/view)
+# Rapport 
+> rapport-eth.pdf
 # Collectible Card Game
 
 Welcome to the DAAR project. The idea will be to implement a Collectible Card Game

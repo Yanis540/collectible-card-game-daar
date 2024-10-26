@@ -6,9 +6,9 @@ import "./index.css";
 const node = document.getElementById('root') ;
 const root = ReactDOM.createRoot(node as any)
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 )

@@ -55,7 +55,7 @@ function Mint() {
             <div className="flex flex-col w-full">
                 <div className="flex flex-row items-center justify-between gap-x-5 py-4 mx-auto w-full max-w-[1300px]">
                 {!showSets && <button className="   bg-yellow-600  hover:text-yellow-900 hover:bg-yellow-400 " onClick={() => { setShowSets(!showSets); setCards([]) }}>{"<"}</button>}
-                {!showSets && <button className="bg-yellow-600  hover:text-yellow-900 hover:bg-yellow-400" onClick={() => mintCards()}
+                {!showSets && <button className="bg-yellow-600  hover:text-yellow-900 hover:bg-yellow-400" onClick={() => {console.log("trying to mint");mintCards()}}
                     disabled={selectedCards.length === 0}  >Mint cards</button>}
                 </div>
             </div>
